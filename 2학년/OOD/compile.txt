@@ -1,0 +1,26 @@
+clang++ -std=c++17 helloworld.cc -o hello
+
+
+Makefile
+
+# all : Target (name) 파일 이름을 나타내기도 함
+all: helloworld.cc # Prerequisites : Target이라는 명령을 수행하려면 helloworld.cc가 있어야 함
+	clang++ -std=c++17 $? -o hello # Recipe Target 명령을 구성하는 레시피
+
+.PHONY: all # .PHONY 뒤에 써놓은건 파일 취급을 안함
+
+# all 이라는 명령을 하면 helloworld.cc 가 있는지 확인하고 그 탭의 Recipe을 실행함
+make 라는 명령어를 쉘한테 주면 Makefile 이 있으면 제일 위에 있는 명령(이 경우 all)을 실행함
+
+make all 이라 하면 all이라는 명령을 수행함
+
+보통 clean 도 만듬
+
+clean:
+	rm -f hello
+
+$^ : refer all the prerequisite
+$@ : refer the target name
+
+hello: helloworld.cc 라고 하면 hello라는 파일이 있고, helloworld.cc가 안바뀌면 실행안함
+prerequisite가 없고 target 파일이 있으면 실행안함
