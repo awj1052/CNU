@@ -39,3 +39,14 @@ quickselect_mom11       1.372911453 sec function calls: 320
 quickselect_mom15       1.236001253 sec function calls: 188
 quickselect_mom101      1.056239128 sec function calls: 15
 ```
+
+## Attempt 4 (1 ~ 10**8 on AMD Ryzen 5 7600 6-Core Processor)
+```
+quickselect_sort        35.627582073 sec
+quickselect_random      30.568865538 sec        function calls: 18
+quickselect_random_good 69.397813559 sec        function calls: 22      pivot average: 2.18
+quickselect_mom5        78.708884716 sec        function calls: 48063
+quickselect_mom11       53.467173576 sec        function calls: 3150
+quickselect_mom15       48.532445669 sec        function calls: 1599
+quickselect_mom101      43.071661234 sec        function calls: 85
+```
