@@ -23,11 +23,27 @@ def quickselect_mom15(arr, k):
     call = 0
     return __quickselect_mom(arr, k, 15)
 
+
 @mytimer.mytimer
 def quickselect_mom101(arr, k):
     global call
     call = 0
     return __quickselect_mom(arr, k, 101)
+
+
+@mytimer.mytimer
+def quickselect_mom251(arr, k):
+    global call
+    call = 0
+    return __quickselect_mom(arr, k, 251)
+
+
+@mytimer.mytimer
+def quickselect_mom501(arr, k):
+    global call
+    call = 0
+    return __quickselect_mom(arr, k, 501)
+
 
 call = 0
 def __quickselect_mom(arr, k, size):

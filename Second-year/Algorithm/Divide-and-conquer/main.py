@@ -2,7 +2,7 @@ import random
 import sorting, random_pivot, mom
 
 arr = [i for i in range(1,10**6)]
-k = 11
+k = 77
 
 random.shuffle(arr)
 
@@ -19,4 +19,8 @@ print(f'\tfunction calls: {mom.call}')
 mom.quickselect_mom15(arr, k)
 print(f'\tfunction calls: {mom.call}')
 mom.quickselect_mom101(arr, k)
+print(f'\tfunction calls: {mom.call}')
+mom.quickselect_mom251(arr, k)
+print(f'\tfunction calls: {mom.call}')
+mom.quickselect_mom501(arr, k)
 print(f'\tfunction calls: {mom.call}')
