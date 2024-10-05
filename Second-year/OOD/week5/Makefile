@@ -8,9 +8,9 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
-all : hw4
+all : hw5
 
-hw4: hw4.cc int_set.o
+hw5: hw5.cc int_set.o
 	$(CC) --std=c++17 $^ -o $@
 
 int_set.o : int_set.cc
@@ -20,10 +20,10 @@ test.o : test.cc $(GTEST_HEADERS)
 	$(CC) $(CPPFLAGS) $(CXXFLAGS) --std=c++17 -c $< -o $@
 
 test: test.o int_set.o gtest_main.a
-	$(CC) $(CPPFLAGS) $(CXXFLAGS) --std=c++17 -pthread $^ -o $@
+	$(CC) $(CPPFLAGS) $(CXXFLAGS) -g -fsanitize=address --std=c++17 $^ -o $@
 
 clean:
-	 rm -f gtest.a gtest_main.a *.o hw4 test
+	 rm -f gtest.a gtest_main.a *.o hw5 test
 
 gtest-all.o: $(GTEST_SRCS_) 
 	$(CC) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) --std=c++17 -c\
