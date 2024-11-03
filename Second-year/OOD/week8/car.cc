@@ -19,7 +19,7 @@ std::string Car::GetSpec() const {
     }
     parts[3] = color_;
     std::string result = "";
-    for (int i=0; i<4; i++) {
+    for (int i = 0; i < 4; i++) {
         if (parts[i] == "") continue;
         if (result != "") {
             result += ", ";
