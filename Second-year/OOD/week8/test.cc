@@ -23,24 +23,23 @@ class KiaCarBuilderTest : public ::testing::Test {
     CarBuilder* car_builder_;
 };
 
-// Hyundai
 TEST_F(HyundaiCarBuilderTest, HyundaiTest1) {
-    auto car = car_builder_->CreateDoor()
+    Car* car = car_builder_->CreateDoor()
                             .CreateWheel()
                             .CreateRoof()
-                            .SetColor("red").Build();
+                            .SetColor("ood").Build();
     EXPECT_EQ(car->GetSpec(),
-        "Car([hyundai] Door, [hyundai] Wheel, [hyundai] Roof, red)");
+        "Car([hyundai] Door, [hyundai] Wheel, [hyundai] Roof, ood)");
 
     delete car;
     delete car_builder_;
 }
 
 TEST_F(HyundaiCarBuilderTest, HyundaiTest2) {
-    auto car = car_builder_->CreateWheel()
-                            .SetColor("blue").Build();
+    Car* car = car_builder_->CreateRoof()
+                            .SetColor("hehe").Build();
     EXPECT_EQ(car->GetSpec(),
-        "Car([hyundai] Wheel, blue)");
+        "Car([hyundai] Roof, hehe)");
 
     delete car;
     delete car_builder_;
@@ -54,28 +53,27 @@ TEST_F(HyundaiCarBuilderTest, HyundaiTest3) {
     delete car_builder_;
 }
 
-// Kia
 TEST_F(KiaCarBuilderTest, KiaTest1) {
-    auto car = car_builder_->CreateWheel()
+    Car* car = car_builder_->CreateWheel()
                             .CreateRoof()
-                            .SetColor("black").Build();
+                            .SetColor("IWANTTOGOHOME").Build();
     EXPECT_EQ(car->GetSpec(),
-        "Car([kia] Wheel, [kia] Roof, black)");
+        "Car([kia] Wheel, [kia] Roof, IWANTTOGOHOME)");
 
     delete car;
     delete car_builder_;
 }
 
 TEST_F(KiaCarBuilderTest, KiaTest2) {
-    auto car1 = car_builder_->CreateDoor()
-                            .CreateRoof().SetColor("white").Build();
-    auto car2 = car_builder_->CreateDoor()
-                            .CreateWheel().SetColor("black").Build();
+    Car* car1 = car_builder_->CreateDoor()
+                            .CreateWheel()
+                            .CreateRoof().Build();
+    Car* car2 = car_builder_->SetColor("PINK").Build();
 
     *car1 = *car2;
 
     EXPECT_EQ(car1->GetSpec(),
-        "Car([kia] Door, [kia] Wheel, black)");
+        "Car(PINK)");
 
     delete car1;
     delete car2;
@@ -83,8 +81,7 @@ TEST_F(KiaCarBuilderTest, KiaTest2) {
 }
 
 TEST_F(KiaCarBuilderTest, KiaTest3) {
-    ASSERT_DEATH(car_builder_->SetColor("111").SetColor("222")
-                            .CreateDoor().CreateRoof()
+    ASSERT_DEATH(car_builder_->CreateDoor().CreateRoof()
                             .CreateWheel().CreateWheel(),
                 "Duplicated Parts retain : Wheel");
 

@@ -11,7 +11,6 @@ int main() {
                         .CreateWheel()
                         .CreateRoof()
                         .SetColor("red").Build();
-    std::cout << "FUCK" << "\n";
     std::cout << car->GetSpec() << "\n";
 
     delete car;
