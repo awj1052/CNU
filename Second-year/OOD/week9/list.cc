@@ -59,12 +59,24 @@ void List::PushFront(int elem) {
 }
 void List::PopBack() {
     assert(size_ > 0 && "Out-of-bound");
+    if (size_ == 1) {
+        head = nullptr;
+        size_ = 0;
+        return;
+    }
     Elem* secondary = GetNode(size_ - 2);
     size_--;
     delete secondary->next;
+    secondary->next = nullptr;
 }
 void List::PopFront() {
     assert(size_ > 0 && "Out-of-bound");
+    if (size_ == 1) {
+        delete head;
+        head = nullptr;
+        size_ = 0;
+        return;
+    }
     Elem* first = head;
     head = head->next;
     size_--;

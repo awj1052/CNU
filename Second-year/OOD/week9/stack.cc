@@ -3,7 +3,7 @@
 Stack::Stack(std::size_t capacity) : Vector(capacity) {}
 Stack::Stack(const Stack& stack) : Vector(stack) {}
 void Stack::operator=(const Stack& stack) {
-    (*this) = stack;
+    Vector::operator=(stack);
 }
 int Stack::size() const {
     return Vector::size();

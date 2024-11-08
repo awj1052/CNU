@@ -3,7 +3,7 @@
 Queue::Queue() : List() {}
 Queue::Queue(Queue& queue) : List(queue) {}
 void Queue::operator=(Queue& queue) {
-    (*this) = queue;
+    List::operator=(queue);
 }
 int Queue::size() const {
     return List::size();
