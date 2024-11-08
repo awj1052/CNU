@@ -1,8 +1,8 @@
 #include "queue.h"
 
 Queue::Queue() : List() {}
-Queue::Queue(Queue& queue) : List(queue) {}
-void Queue::operator=(Queue& queue) {
+Queue::Queue(const Queue& queue) : List(queue) {}
+void Queue::operator=(const Queue& queue) {
     List::operator=(queue);
 }
 int Queue::size() const {

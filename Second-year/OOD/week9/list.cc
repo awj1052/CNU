@@ -7,7 +7,7 @@ void List::FreeAll(List::Elem* cur) {
     FreeAll(cur->next);
     delete cur;
 }
-List::Elem* List::GetNode(int index) {
+List::Elem* List::GetElem(int index) {
     assert((index >= 0 && index < size_) && "Out-of-bound");
     List::Elem* res = head;
     for (int i = 0; i < index; i++) {
@@ -25,13 +25,13 @@ List::Elem* List::CopyAll(List::Elem* cur) {
     return copied;
 }
 List::List() : head(nullptr), size_(0) {}
-List::List(List& list) : size_(list.size_) {
+List::List(const List& list) : size_(list.size_) {
     head = CopyAll(list.head);
 }
 List::~List() {
     FreeAll(head);
 }
-void List::operator=(List& list) {
+void List::operator=(const List& list) {
     FreeAll(head);
     head = CopyAll(list.head);
     size_ = list.size_;
@@ -46,7 +46,7 @@ void List::PushBack(int elem) {
     if (size_ == 0) {
         head = node;
     } else {
-        GetNode(size_ - 1)->next = node;
+        GetElem(size_ - 1)->next = node;
     }
     size_++;
 }
@@ -64,7 +64,7 @@ void List::PopBack() {
         size_ = 0;
         return;
     }
-    Elem* secondary = GetNode(size_ - 2);
+    Elem* secondary = GetElem(size_ - 2);
     size_--;
     delete secondary->next;
     secondary->next = nullptr;
@@ -83,7 +83,7 @@ void List::PopFront() {
     delete first;
 }
 int& List::At(int index) {
-    return GetNode(index)->value;
+    return GetElem(index)->value;
 }
 bool List::IsEmpty() const {
     return size_ == 0;

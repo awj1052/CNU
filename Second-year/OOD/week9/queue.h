@@ -6,8 +6,8 @@
 class Queue : private List {
  public:
     Queue();
-    Queue(Queue& queue);
-    void operator=(Queue& queue);
+    Queue(const Queue& queue);
+    void operator=(const Queue& queue);
     int size() const;
     void Add(int elem);
     int Poll();

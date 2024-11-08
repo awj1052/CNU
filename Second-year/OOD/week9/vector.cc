@@ -10,7 +10,7 @@ Vector::Vector(const Vector& vector) :
     size_(vector.size_) {
     for (int i = 0; i < vector.size_; i++) {
         elements_[i] = vector.elements_[i];
-    }    
+    }
 }
 Vector::~Vector() {
     delete[] elements_;

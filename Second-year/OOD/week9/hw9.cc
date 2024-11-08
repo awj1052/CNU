@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include "stack.h"
-#include "queue.h"
 #include "vector.h"
 #include "list.h"
+#include "stack.h"
+#include "queue.h"
 
 int main() {
     // Vector* vector = new Vector(5);
@@ -20,6 +20,8 @@ int main() {
     lst.PushBack(2);
     lst.PushFront(1);
     lst.PushBack(3);
-    std::cout << lst.At(1) << " " << lst.At(2) << "\n";
-    return 0;
+    List nlst = List(lst);
+    nlst.PushFront(0);
+    std::cout << nlst.At(1) << " " << nlst.At(2) << "\n";
+    return 1;
 }

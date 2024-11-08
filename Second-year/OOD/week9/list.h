@@ -6,9 +6,9 @@
 class List {
  public:
     List();
-    List(List& list);
+    List(const List& list);
     virtual ~List();
-    void operator=(List& list);
+    void operator=(const List& list);
     int size() const;
     void PushBack(int elem);
     void PushFront(int elem);
@@ -22,11 +22,10 @@ class List {
         Elem* next;
     };
     void FreeAll(Elem* cur);
-    Elem* GetNode(int index);
+    Elem* GetElem(int index);
     Elem* CopyAll(Elem* cur);
     Elem* head;
     int size_;
-    
 };
 
 #endif   // _LIST_H_
