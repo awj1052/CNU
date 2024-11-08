@@ -23,5 +23,5 @@ int main() {
     List nlst = List(lst);
     nlst.PushFront(0);
     std::cout << nlst.At(1) << " " << nlst.At(2) << "\n";
-    return 1;
+    return 0;
 }
